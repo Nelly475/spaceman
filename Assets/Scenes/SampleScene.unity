@@ -225,6 +225,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 6
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1001 &2057576116633305761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -235,6 +238,10 @@ PrefabInstance:
     - target: {fileID: 2057576117806987819, guid: 3e408f68c516e38479fb55b449531ab4, type: 3}
       propertyPath: m_Name
       value: platforn_l
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057576117806987819, guid: 3e408f68c516e38479fb55b449531ab4, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2057576117806987820, guid: 3e408f68c516e38479fb55b449531ab4, type: 3}
       propertyPath: m_RootOrder
