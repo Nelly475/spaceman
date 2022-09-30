@@ -6,21 +6,22 @@ public class PlayerController : MonoBehaviour
 {
     //Variables del movimiento
     public float jumpForce = 6f;
-    public float runningSpeed = 2f;
+    public float runningSpeed = 1f;
 
     Rigidbody2D rigidBody;
     Animator animator;
-
+    
     private const string STATE_ALIVE = "isAlive";
     private const string STATE_ON_GROUND = "isOnGround";
 
     public LayerMask groundMask;
+
     void Awake ()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
-    
+
     // Start is called before the first frame update
     void Start() {
         animator.SetBool(STATE_ALIVE, true);
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetButtonDown("Jump")){
             Jump();
         }
-
+        
         animator.SetBool(STATE_ON_GROUND, IsTouchingGround());
 
         Debug.DrawRay(this.transform.position, Vector2.down*1.5f, Color.red);
@@ -48,12 +49,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     void Jump() {
         if(GameManager.sharedInstance.currentGameState == GameState.inGame){
             if(IsTouchingGround()){
                 rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            }
+            }    
         }
     }
 
